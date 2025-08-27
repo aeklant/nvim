@@ -4,8 +4,8 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "everforest"
-        --theme = "jellybeans"
+        theme = "nord"
+        --theme = "everforest"
       }
     })
   end
