@@ -1,6 +1,7 @@
 return {
 	{
 		"mason-org/mason.nvim",
+    version = "^1.0.0",
 		opts = {},
 		config = function()
 			require("mason").setup()
@@ -8,6 +9,7 @@ return {
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
+    version = "^1.0.0",
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = { "lua_ls", "pylsp", "rust_analyzer" },
@@ -26,9 +28,9 @@ return {
 			lspconfig.pylsp.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.rust_analyzer.setup({
-				capabilities = capabilities,
-			})
+			--lspconfig.rust_analyzer.setup({
+			--	capabilities = capabilities,
+			--})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
