@@ -6,5 +6,6 @@ return {
 	{ -- themes
     { import = "plugins.themes.everforest-nvim" },
     { import = "plugins.themes.nightfox-theme" },
+    { import = "plugins.themes.zenburn" },
 	},
 }
