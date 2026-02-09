@@ -1,39 +1,37 @@
 return {
 	{
-		"mason-org/mason.nvim",
-    version = "^1.0.0",
+		'mason-org/mason.nvim',
 		opts = {},
 		config = function()
-			require("mason").setup()
+			require('mason').setup()
 		end,
 	},
 	{
-		"mason-org/mason-lspconfig.nvim",
-    version = "^1.0.0",
+		'mason-org/mason-lspconfig.nvim',
 		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pylsp", "rust_analyzer" },
+			require('mason-lspconfig').setup({
+				ensure_installed = { 'lua_ls', 'rust_analyzer', },
 			})
 		end,
 	},
 	{
-		"neovim/nvim-lspconfig",
+		'neovim/nvim-lspconfig',
 		config = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			--local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.pylsp.setup({
-				capabilities = capabilities,
-			})
-			--lspconfig.rust_analyzer.setup({
-			--	capabilities = capabilities,
-			--})
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.lsp.config('rust_analyzer', {
+        -- Server-specific settings. See `:help lsp-quickstart`
+        settings = {
+          ['rust-analyzer'] = {},
+        },
+      })
+
+			vim.lsp.enable('lua_ls')
+      vim.lsp.enable('rust_analyzer')
+
+			vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+			vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 		end,
 	},
 }
