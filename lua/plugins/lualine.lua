@@ -4,8 +4,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "zenburn",
-        --theme = "everforest"
+        theme = "seoul256"
       },
     })
   end,
